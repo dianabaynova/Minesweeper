@@ -4,8 +4,12 @@
  */
 package javaapplication3;
 
+import java.awt.BorderLayout;
 import java.util.Random;
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,10 +17,41 @@ import java.util.Scanner;
  */
 public class Minesweeper {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+  JFrame frame = new JFrame("Minesweeper");
+  JLabel textLabel = new JLabel();
+  JPanel textPanel = new JPanel();
+  
+  private int tileSize;
+  private int numRows; 
+  private int bombs;
+  private int numCols = numRows;
+  private int boardWidth = numCols*tileSize;
+  private int boardHeight = numRows*tileSize;
+ 
+  public void setTileSize(int nTileSize)
+  {
+      tileSize = nTileSize;
+  }
+  public void setNumRows(int nNumRows)
+  {
+      numRows = nNumRows;
+  }
+  public void setBobmbs(int nBombs)
+  {
+      bombs = nBombs;
+  }
+  
+  public Minesweeper(int nTileSize, int nNumRows, int nBombs)
+  {
+      frame.setVisible(true);
+      frame.setSize(boardWidth, boardHeight);
+      frame.setLocationRelativeTo(null);
+      frame.setResizable(false);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setLayout(new BorderLayout());
+      
+  }
+    public static void board() {
         Scanner input= new Scanner(System.in);
         int[][] field = new int[9][9];
         Random xAxis = new Random();
