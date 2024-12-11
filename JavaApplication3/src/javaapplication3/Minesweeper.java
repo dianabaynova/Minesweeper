@@ -5,6 +5,9 @@
 package javaapplication3;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JFrame;
@@ -16,10 +19,10 @@ import javax.swing.JPanel;
  * @author diananb
  */
 public class Minesweeper {
-
   JFrame frame = new JFrame("Minesweeper");
   JLabel textLabel = new JLabel();
   JPanel textPanel = new JPanel();
+  JPanel boardPanel = new JPanel();
   
   private int tileSize;
   private int numRows; 
@@ -49,6 +52,22 @@ public class Minesweeper {
       frame.setResizable(false);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setLayout(new BorderLayout());
+      
+      textLabel.setFont(new Font("Arial", Font.BOLD, 25));
+      textLabel.setHorizontalAlignment(JLabel.CENTER);
+      textLabel.setText("Minesweeper");
+      textLabel.setOpaque(true);
+      
+      textPanel.setLayout(new BorderLayout());
+      textPanel.add(textLabel);
+      frame.add(textPanel, BorderLayout.NORTH);
+      
+      boardPanel.setLayout(new GridLayout(numRows, numCols));
+      boardPanel.setBackground(Color.gray);
+      frame.add(boardPanel);
+      
+      
+      
       
   }
     public static void board() {
